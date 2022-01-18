@@ -1,36 +1,32 @@
 ﻿using System;
 
-namespace Palindrome_1
+namespace ConsoleApp5
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a string: "); //Asks the user to enter a string.
-            string userString = Console.ReadLine().ToLower(); //Inputs and converts the string to all lowercase so it isn't case sensitive.
+            int x = 1234;
+
+            string xString = x.ToString(); //Converts the integer to a string so each character can be easily displayed seperately.
 
 
-            int i = 0;
-            int j = userString.Length - 1;
 
-
-            while (true) //Continuously loops the following code.
+            for (int i = 0; i < xString.Length; i++) //A series of for loops that increment each character in the string.
             {
-                char a = userString[i];
-                char b = userString[j];
-
-                if (a != b) //Checks if the characters are not the same.
+                for (int j = 0; j < xString.Length; j++)
                 {
-                    Console.WriteLine($"{userString} is not a palindrome.");
-                    break;
+                    for (int k = 0; k < xString.Length; k++)
+                    {
+                        for (int l = 0; l < xString.Length; l++)
+                        {
+                            if (i != j && i != k && i != l && j != k && j != l && k != l) //Chacks t see if any characters are the same.
+                            {
+                                Console.WriteLine($"{xString[i]}{xString[j]}{xString[k]}{xString[l]}"); //Outputs the final values.
+                            }
+                        }
+                    }
                 }
-                else if (i >= j) //Checks if the ehile loop has gone through every letter.
-                {
-                    Console.WriteLine($"{userString} is a palindrome.");
-                    break;
-                }
-                i++;
-                j--;
             }
         }
     }
